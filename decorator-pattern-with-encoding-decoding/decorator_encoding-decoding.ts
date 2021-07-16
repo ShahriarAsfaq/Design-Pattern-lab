@@ -47,7 +47,7 @@ export class encoder extends Decoretor{
 }
 
 export class decoder extends Decoretor{
- crypdec: CryptoEncoding;    
+    
  writingplace: Writingplace;
  constructor (writingplace: Writingplace){
      super();
@@ -62,16 +62,8 @@ export class decoder extends Decoretor{
       char.repeat(Number(count))
     );
     //return decomposed;
-    var q= CryptoEncoding.decode(input1);
-     return q;
+    var bytes = CryptoJS.AES.decrypt(input1, "CSE4502");
+    return bytes.toString(CryptoJS.enc.Utf8);
  }
 }
 
-export default class CryptoEncoding {
-    
-    // decode encoded message to original text
-    static decode(encodedText: string): string {
-      const bytes = CryptoJS.AES.decrypt(encodedText, "CSE4502");
-      return bytes.toString(CryptoJS.enc.Utf8);
-    }
-  }
