@@ -1,0 +1,13 @@
+"use strict";
+exports.__esModule = true;
+var decorator_encoding_decoding_1 = require("./decorator_encoding-decoding");
+var writingplace1 = new decorator_encoding_decoding_1.UserText();
+writingplace1 = new decorator_encoding_decoding_1.encoder(writingplace1);
+var b1 = writingplace1.gettext("aabbbcccc");
+var a1 = writingplace1.getDescription();
+console.log(a1 + " " + b1);
+var writingplace2 = new decorator_encoding_decoding_1.UserText();
+writingplace2 = new decorator_encoding_decoding_1.decoder(writingplace2);
+var b2 = writingplace2.gettext(b1);
+var a2 = writingplace2.getDescription();
+console.log(a2 + " " + b2);
